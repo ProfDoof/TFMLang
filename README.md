@@ -31,10 +31,23 @@ These rules fall into multiple flavors.
 - Action: These add an extra action that players can take each turn
 - Effect: These add some effect to the game that the player leverages in a variety of way to impact production, cost, and resources
 
+### Projects
+
+There are a variety of projects/actions that a player can take. 
+
+1. Standard Project, these are the projects available to all players and can be thought of as Actions or an infinitely renewable source of cards
+2. Actions, these are actions that players gain. These can be thought of as a set of cards that players draw every turn and discard at the end of the turn if they don't use them before drawing a new one.
+3. Cards, these have a cost associated with them much like any other type of project but they can also define new actions available to players and create effects.
+
+### Effects
+
+Effects are passive as compared to the projects/actions active nature. These impact the cost of cards, the cost of various actions, they functionally redefine actions or redefine rules. 
 
 # Potential Language Design
 
-Instead of viewing things like cards, requirements, etc. as types. Let's represent them as transactional functions
+## Attempt 1
+
+Instead of viewing things like cards, requirements, etc. as types. Let's represent them as transactional functions with aspects
 
 Goals:
 - Every transaction is a sequence of transactions
@@ -51,7 +64,56 @@ Another potential design though is to make it a composition language where each 
 you have completely defined a rule or card. Thus, anything that wants to use it uses the full information but anyone outside looks at
 it as a method of defining a card. However, if this is the case, might it be better to just use something like yaml or toml?
 
+## Attempt 2
+
+Each specified thing is either a rule, an action, or a resource. 
+
+Resources can be thought of as things that belong to the bank, things that belong to players, and things that correspond to real world objects such as tiles. Each resource belongs to a single individual. And they must transfer completely for each case. TRANSACTIONAL
+
+Rules are things that impact the cost of an action, the availability of an action, the impact of resources, the usage of resources outside of actions (for example, steel being worth 2 MC for the play of a card that has a building tag).
+
+Actions are things that players can do. Actions are only viable during certain phases of play and depend on resources to be available and other requirements.
+
+
+
+## Current potential structure of a TFM file
+All TFM files have the extension `.tfm`. They can contain definitions for resources, rules, and actions.
+
+## Comments
+
+To add comments to a TFM file, simply add a `#` on the same line prior to where you want to put your comments so that they are not considered as part of the TFM description. 
+
+## Resources
+
+Resources are basically counters. They can be moved from the bank or the global context, to a player, and back again. They can be functionally infinite, or they can have a variety of attributes associated with them. 
+
+Currently, resources support the following:
+
+- Min: The minimum amount of this resource that is allowed
+- Max: The maximum amount of this resource that is allowed
+- Scope: The scope that the resource belongs to. There are currently only three options for this but we can evaluate more as needed.
+  - Card: A resource that is scoped to belong only to a card. This includes animals, microbes, etc. This may be extracted to belong to cards instead of something to be defined outside.
+  - Local: A resource that is locally scoped currently belongs to each player individually. That is, each player will have their own pool of this resource. 
+  - Global: A resource that is globally scoped belongs to the game alone. All players can access the same instance of this resource. Functionally, this is similar to the singleton pattern in OO programming
+- Step: Some resources should only be changed by specific amounts. For example, Oxygen and Temperature can only go up. So, they can specify a step detailing exactly how much a step should change. However, a step can also point to a rule that is defined for how to handle changing the amounts on this resource.
+- Unit: A string that following a number converts that number from a raw integer to an that number of instances of a resource. For example, % is the unit for Oxygen.
+
+## Rules
+
+
+
+## Actions
+
+# Cards
+Search for Life @ Oxygen <= 8%
+
+```
+
 ## Current potential structure of a TFM function
+```
+
+```
+
 ```
 Keywords of function: arg1 arg2, ...
 More keywords: arg1 arg2, ...

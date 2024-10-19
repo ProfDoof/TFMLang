@@ -1,0 +1,13 @@
+Order: [O, R, A, P]
+
+Phase: Player Order Phase
+    Alias: O
+
+Phase: Research Phase
+    Alias: R
+
+Phase: Action Phase
+    Alias: A
+
+Phase: Production Phase
+    Alias: P

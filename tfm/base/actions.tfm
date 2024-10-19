@@ -1,0 +1,4 @@
+Action: Sell Patents
+    Effect: 
+        - Choose cards CARDS
+        - Move CARDS to Discard Pile

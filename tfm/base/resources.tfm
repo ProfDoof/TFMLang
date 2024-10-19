@@ -1,0 +1,61 @@
+Resource: Oxygen
+  Scope: Global
+  Min: 0
+  Max: 14
+  Step: 1
+  Unit: %
+
+Resource: Temperature
+  Scope: Global
+  Min: -30
+  Max: 8
+  Step: 2
+  Unit: °C
+
+Resource: Oceans
+  Scope: Global
+  Min: 0
+  Max: 9
+  Step: 1
+
+Resource: Generation
+  Scope: Global
+  Min: 1
+  Step: 1
+  Unit: G
+
+Resource: Terraform Rating
+  Scope: Local
+  Min: 14
+  Step: 1
+  Unit: TR
+
+Resource: MC
+  Scope: Local
+  Min: 0
+  Unit: MC
+
+Resource: Steel
+  Scope: Local
+  Min: 0
+  Unit: S
+
+Resource: Titanium
+  Scope: Local
+  Min: 0
+  Unit: T
+
+Resource: Plant
+  Scope: Local
+  Min: 0
+  Unit: P
+
+Resource: Power
+  Scope: Local
+  Min: 0
+  Unit: W
+
+Resource: Heat
+  Scope: Local
+  Min: 0
+  Unit: H

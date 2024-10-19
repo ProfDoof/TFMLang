@@ -1,0 +1,32 @@
+Rule: Transfer Power to Heat
+    Scope: Local
+    Phase: P
+    Trigger: Power > 0
+    Effect: Heat += Power, Power -= Power
+
+# Bonuses
+Rule: Temp Bonus 1
+    Scope: Local
+    Phase: A
+    Trigger: Temperature Stepped, Temperature >= -24 
+    Effect: H/G += 1, Delete self
+
+Rule: Temp Bonus 2
+    Scope: Local
+    Phase: A
+    Trigger: Temperature Stepped, Temperature >= -20 
+    Effect: H/G += 1, Delete self
+
+Rule: Temp Bonus 3
+    Scope: Local
+    Phase: A
+    Trigger: Temperature Stepped, Temperature >= -20 
+    Effect: Place Ocean, Delete self
+
+Rule: Oxygen Bonus
+    Scope: Global
+    Phase: A
+    Trigger: Oxygen Stepped, Oxygen >= 8
+    Effect: Step Temperature, Delete self
+
+Rule: 

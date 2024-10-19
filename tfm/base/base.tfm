@@ -1,0 +1,4 @@
+Game:
+    Phases: load ./phases.tfm
+    Resources: load ./resources.tfm
+    

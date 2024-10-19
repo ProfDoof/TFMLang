@@ -1,0 +1,28 @@
+Location: Draw Pile
+    Scope: Global
+    Shape: Card Pile
+
+Location: Discard Pile
+    Scope: Global
+    Shape: Card Pile
+
+Location: Tableau
+    Scope: Local
+    Shape: Card Pile
+
+Location: Map
+    Scope: Global
+    Composed of: Mars, Phobos, and Ganymede
+    # Shape is implicitly derived from composition
+
+Location: Mars
+    Scope: Global
+    Shape: Tile Board sized (9, 9, 9)
+
+Location: Phobos
+    Scope: Global
+    Shape: Tile Board sized (1)
+
+Location: Ganymede
+    Scope: Global
+    Shape: Tile Board sized (1)
